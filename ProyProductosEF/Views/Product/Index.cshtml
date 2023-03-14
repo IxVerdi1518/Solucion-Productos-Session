@@ -1,0 +1,42 @@
+﻿@model List<ProductEF>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista Productos</h1>
+<a asp-controller="Product" asp-action="Create" class="btn float-end btn-primary" width="10">Crear</a>
+<br />
+<br />
+<div class="contairner">
+    <div class="row">
+        @if (Model.Count() > 0)
+        {
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td>Identificacion</td>
+                        <td>Nombre</td>
+                        <td>Categoria</td>
+                        <td>Detalle</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.IdProducto</td>
+                            <td>@item.Nombre</td>
+                            <td>@item.Categoria</td>
+                            <td>@item.Detalle</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No existe registros</p>
+        }
+    </div>
+</div>
